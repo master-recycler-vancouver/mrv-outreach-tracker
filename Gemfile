@@ -5,8 +5,8 @@ ruby '2.5.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use postgresql as the database for Active Record
+gem 'pg', '~> 1.1.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -36,9 +36,20 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'awesome_print'
+gem 'devise', '~> 4.6.2'
+gem 'devise_invitable', '~> 2.0.1'
+gem 'dotenv-rails', '2.7.2', require: 'dotenv/rails-now'
+gem 'pundit', '~> 2.0.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
+  gem 'pry-doc'
+  gem 'rspec-rails'
+  gem 'guard-rails', require: false
+  gem 'guard-rspec', require: false
 end
 
 group :development do
