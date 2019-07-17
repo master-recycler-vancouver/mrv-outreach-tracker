@@ -1,0 +1,16 @@
+.navbar {
+  // height: 6rem;
+  // border-bottom: $base-border;
+
+  &--admin {
+    background-color: var(--dark-grey);
+  }
+
+  &--student {
+    background-color: var(--brand-green);
+  }
+}
+
+// .nav-item {
+//   color: white;
+// }
