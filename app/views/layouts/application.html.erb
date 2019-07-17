@@ -10,15 +10,17 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    <nav class="navbar navbar--admin">
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-item" %>
+    </nav>
+    <div class="container">
+      <div>
+        <% flash.each do |k,v| %>
+          <div class=" <%= k %>"><%= v %></div>
+        <% end unless flash.empty? %>
+      </div>
 
-    <div>
-      <% flash.each do |k,v| %>
-        <div class=" <%= k %>"><%= v %></div>
-      <% end unless flash.empty? %>
+      <%= yield %>
     </div>
-
-    <%= yield %>
   </body>
 </html>
