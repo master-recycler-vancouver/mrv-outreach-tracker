@@ -1,0 +1,33 @@
+<p>
+	<strong>Start Time:</strong>
+  <%= @outreach_event.start_time %>
+</p>
+ 
+<p>
+  <strong>End Time:</strong>
+  <%= @outreach_event.end_time %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @outreach_event.description %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <% #TODO display in hours? %>
+  <%= @outreach_event.duration_in_minutes %>
+</p>
+
+<p>
+  <strong>Number of People Reached:</strong>
+  <%= @outreach_event.people_reached %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @outreach_event.notes %>
+</p>
+
+<%= link_to 'Edit', edit_outreach_event_path(@outreach_event) %>
+<%= link_to 'Back', outreach_events_path %>
