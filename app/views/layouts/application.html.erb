@@ -10,9 +10,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar--admin">
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-item" %>
-    </nav>
+    <%= render partial: "shared/navbar" %>
     <div class="container">
       <div>
         <% flash.each do |k,v| %>

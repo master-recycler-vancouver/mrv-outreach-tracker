@@ -1,9 +1,11 @@
 .navbar {
-  // height: 6rem;
-  // border-bottom: $base-border;
+  border-bottom: 1px solid var(--black);
 
   &--admin {
     background-color: var(--dark-grey);
+    .navbar-item {
+      color: white;
+    }
   }
 
   &--student {
