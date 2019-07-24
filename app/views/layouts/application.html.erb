@@ -10,15 +10,15 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    <%= render partial: "shared/navbar" %>
+    <div class="container">
+      <div>
+        <% flash.each do |k,v| %>
+          <div class=" <%= k %>"><%= v %></div>
+        <% end unless flash.empty? %>
+      </div>
 
-    <div>
-      <% flash.each do |k,v| %>
-        <div class=" <%= k %>"><%= v %></div>
-      <% end unless flash.empty? %>
+      <%= yield %>
     </div>
-
-    <%= yield %>
   </body>
 </html>

@@ -1,0 +1,18 @@
+<nav class="navbar">
+  <div class="navbar-logo">
+
+  </div>
+
+  <div class="navbar-menu <%= navbar_user_class %>">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Home
+      </a>
+    </div>
+
+    <div class="navbar-end">
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+    </div>
+  </div>
+  
+</nav>
