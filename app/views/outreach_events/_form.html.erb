@@ -4,38 +4,50 @@
     <% #TODO %>
   <% end %>
  
-  <p>
-    <%= form.label :start_time %><br>
-    <%= form.datetime_field :start_time %>
-  </p>
+  <div class="field">
+    <%= form.label :start_time, class: "label" %>
+    <div clas="control">
+      <%= form.datetime_field :start_time, class: "input" %>
+    </div>
+  </div>
 
-  <p>
-    <%= form.label :end_time %><br>
-    <%= form.datetime_field :end_time %>
-  </p>
+  <div class="field">
+    <%= form.label :end_time, class: "label" %>
+    <div clas="control">
+      <%= form.datetime_field :end_time, class: "input" %>
+    </div>
+  </div>
 
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+  <div class="field">
+    <%= form.label :description, class: "label" %>
+    <div clas="control">
+      <%= form.text_area :description, class: "textarea" %>
+    </div>
+  </div>
 
-  <p>
-    <%= form.label :duration_in_minutes %><br>
-    <%= form.number_field :duration_in_minutes %>
-  </p>
+  <div class="field">
+    <%= form.label :duration_in_minutes, class: "label" %>
+    <div clas="control">
+      <%= form.number_field :duration_in_minutes, class: "input" %>
+    </div>
+  </div>
 
-  <p>
-    <%= form.label :people_reached %><br>
-    <%= form.number_field :people_reached %>
-  </p>
+  <div class="field">
+    <%= form.label :people_reached, class: "label" %>
+    <div clas="control">
+      <%= form.number_field :people_reached, class: "input" %>
+    </div>
+  </div>
 
-  <p>
-    <%= form.label :notes %><br>
-    <%= form.text_area :notes %>
-  </p>
+  <div class="field">
+    <%= form.label :notes, class: "label" %>
+    <div clas="control">
+      <%= form.text_area :notes, class: "textarea" %>
+    </div>
+  </div>
  
-  <p>
-    <%= form.submit %>
-  </p>
+  <div class="control">
+    <%= form.submit class: "button is-primary" %>
+  </div>
  
 <% end %>
