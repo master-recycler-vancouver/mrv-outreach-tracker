@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :outreach_events
+
+  resources :users
+  get "/profile", to: "users#profile" 
 end
