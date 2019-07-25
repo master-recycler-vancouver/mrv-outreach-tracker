@@ -3,7 +3,16 @@
   --brand-green: #3AB151;
   --black: #333;
   --dark-grey: #5d5d5d;
+  --light-grey: #d3d3d3;
 }
+
+
+$brand-primary: #1D8593;
+
+// Bulma Overrides
+$primary: $brand-primary !default;
+// End Bulma Overrides
+
 
 $base-font-size: 16px;
 

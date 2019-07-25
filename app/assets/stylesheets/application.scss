@@ -14,11 +14,13 @@
  *= require_self
  */
 
+//  Import overrides before Bulma as per docs: https://bulma.io/documentation/customize/variables/
+@import "utilities/all";
+
 //  Import Bulma library
 @import "bulma";
 
-// Import our overrides and custom components
-@import "utilities/all";
+// Import our custom components
 @import "base/all";
 @import "mixins/all";
 @import "layout/all";

@@ -1,11 +1,10 @@
 module ApplicationHelper
 
   def navbar_user_class
-    case current_user.role
-    when "admin"
-      "navbar--admin"
+    if current_user && current_user.admin?
+      "is-dark"
     else
-      "navbar--student"
+      "is-white"
     end
   end
 end
