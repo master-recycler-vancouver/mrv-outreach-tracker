@@ -45,8 +45,7 @@ class OutreachEventsController < ApplicationController
 private
 	def outreach_event_params
 	  params.require(:outreach_event).permit(
-			:start_time,
-			:end_time,
+			:date_range,
 			:description,
 			:duration_in_minutes,
 			:people_reached,
