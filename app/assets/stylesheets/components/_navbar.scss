@@ -1,18 +1,5 @@
 .navbar {
-  border-bottom: 1px solid var(--black);
-
-  &--admin {
-    background-color: var(--dark-grey);
-    .navbar-item {
-      color: white;
-    }
-  }
-
-  &--student {
-    background-color: var(--brand-green);
+  &.is-white {
+    border-bottom: 1px solid $light-grey;
   }
 }
-
-// .nav-item {
-//   color: white;
-// }

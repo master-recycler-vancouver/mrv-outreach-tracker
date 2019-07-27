@@ -1,0 +1,23 @@
+/* Base Variables */
+$brand-primary: #1D8593;
+$brand-green: #3AB151;
+$brand-black: #333;
+$dark-grey: #5d5d5d;
+$light-grey: #d3d3d3;
+
+/* Bulma Overrides */
+$primary: $brand-primary !default;
+
+/* Other custom variables */
+
+// Layout
+$base-border: 1px solid $brand-black;
+
+// Typography
+$base-font-size: 16px;
+
+// Spacing
+$space-1: 0.5rem;
+$space-2: 1rem;
+$space-3: 1.5rem;
+$space-4: 2rem;

@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'awesome_print'
 gem 'bulma-rails', '~> 0.7.5'
+gem 'font-awesome-sass', '~> 5.9.0'
 gem 'devise', '~> 4.6.2'
 gem 'devise_invitable', '~> 2.0.1'
 gem 'dotenv-rails', '2.7.2', require: 'dotenv/rails-now'

@@ -11,12 +11,21 @@
 
   <body>
     <%= render partial: "shared/navbar" %>
-    <div class="container">
+    <%= render partial: "shared/subnav" %>
+
+    <div class="container is-small">
       <div>
         <% flash.each do |k,v| %>
           <div class=" <%= k %>"><%= v %></div>
         <% end unless flash.empty? %>
       </div>
+
+      <h2 class="title">
+        <%= yield :page_header %>
+        <div class="title-action">
+          <%= yield :page_header_action %>
+        </div>
+      </h2>
 
       <%= yield %>
     </div>
