@@ -13,4 +13,10 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+
+// Need vendor before outreach-event
+//= require_tree ./vendor 
+//= require outreach-event
+
+// Then the rest
+//= require_tree . 
