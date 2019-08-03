@@ -14,7 +14,7 @@
     <%= render partial: "shared/subnav" %>
 
     <div class="container is-small">
-      <div>
+      <div class="has-text-centered">
         <% flash.each do |k,v| %>
           <div class=" <%= k %>"><%= v %></div>
         <% end unless flash.empty? %>
