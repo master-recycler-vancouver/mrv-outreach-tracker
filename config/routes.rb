@@ -6,4 +6,8 @@ Rails.application.routes.draw do
 
   resources :users
   get "/profile", to: "users#profile" 
+
+  namespace :admin do
+    resources :outreach_events, only: :index
+  end
 end
