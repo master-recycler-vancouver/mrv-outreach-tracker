@@ -1,22 +1,22 @@
 class OutreachEventsController < ApplicationController
   def index
-  	@outreach_events = current_user.outreach_events
+  	@outreach_events = policy_scope current_user.outreach_events
   end
 
   def show
-  	@outreach_event = OutreachEvent.find(params[:id])
+  	@outreach_event = authorize OutreachEvent.find(params[:id])
   end
 
   def new
-  	@outreach_event = current_user.outreach_events.build
+  	@outreach_event = authorize current_user.outreach_events.build
   end
 
   def edit
-  	@outreach_event = OutreachEvent.find(params[:id])
+  	@outreach_event = authorize OutreachEvent.find(params[:id])
   end
 
   def create
-  	@outreach_event = current_user.outreach_events.build(outreach_event_params)
+  	@outreach_event = authorize current_user.outreach_events.build(outreach_event_params)
 
 		if @outreach_event.save
 			redirect_to @outreach_event
@@ -26,7 +26,7 @@ class OutreachEventsController < ApplicationController
   end
 
 	def update
-		@outreach_event = OutreachEvent.find(params[:id])
+		@outreach_event = authorize OutreachEvent.find(params[:id])
  
 		if @outreach_event.update(outreach_event_params)
 			redirect_to @outreach_event
@@ -36,7 +36,7 @@ class OutreachEventsController < ApplicationController
 	end
 
 	def destroy
-		@outreach_event = OutreachEvent.find(params[:id])
+		@outreach_event = authorize OutreachEvent.find(params[:id])
 		@outreach_event.destroy
 	
     redirect_to outreach_events_path     
