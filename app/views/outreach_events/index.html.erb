@@ -3,10 +3,12 @@
 <% end %>
 
 <% content_for :page_header_action do %>
-  <%= link_to 'New Outreach Event', new_outreach_event_path, class: "button is-primary" %>
-<% end %>
 
-<h4 class="heading is-inline-block">Total Hours</h4>
-<div class="pill"><%= @outreach_events.sum(:duration_in_minutes) / 60.0 %></div>
+    <h4 class="heading mr-1 mb-0">Total<br/>Hours</h4>
+    <div class="pill is-yellow mr-4"><%= @outreach_events.sum(:duration_in_minutes) / 60.0 %></div>
+
+    <%= link_to 'New Outreach Event', new_outreach_event_path, class: "button is-primary" %>
+
+<% end %>
 
 <%= render partial: "outreach_events_list", locals: {outreach_events: @outreach_events} %>

@@ -1,8 +1,13 @@
 .pill {
   display: inline-block;
   color: white;
+  font-size: $base-font-size;
   font-weight: bold;
   background-color: $brand-primary;
   border-radius: $space-4;
   padding: $space-1 $space-2;
+
+  &.is-yellow {
+    background-color: $brand-yellow;
+  }
 }

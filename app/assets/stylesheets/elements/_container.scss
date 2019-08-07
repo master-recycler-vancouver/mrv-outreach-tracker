@@ -2,4 +2,8 @@
   &.is-small {
     max-width: 960px;
   }
+
+  &.is-padded {
+    padding: 0 $space-3;
+  }
 }
