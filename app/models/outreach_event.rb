@@ -1,4 +1,7 @@
 class OutreachEvent < ApplicationRecord
+  # NOTE: This MUST correspond to the bulma calendar dateFormat option
+  DATE_FORMAT = "%d/%m/%Y"
+
   belongs_to :user
 
   attr_accessor :date_range
@@ -6,7 +9,7 @@ class OutreachEvent < ApplicationRecord
   def date_range=(val)
   	start_str, end_str = val.split(' - ')
 
-  	self.start_time = start_str
-  	self.end_time = end_str
+  	self.start_time = Date.strptime(start_str, DATE_FORMAT)
+  	self.end_time = Date.strptime(end_str, DATE_FORMAT)
 	end
 end
