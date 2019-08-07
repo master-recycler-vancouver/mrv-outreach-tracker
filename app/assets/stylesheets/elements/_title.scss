@@ -1,3 +1,16 @@
 .title-action {
-  float: right;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  // This hack allows us to create gutters: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items#Creating_gutters_between_items
+  margin-top: -$space-1;
+
+  @include tablet {
+    float: right;
+  }
+
+  > * {
+    margin-top: $space-1;
+  }
 }

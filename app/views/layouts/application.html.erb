@@ -5,6 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,8 +15,8 @@
     <%= render partial: "shared/navbar" %>
     <%= render partial: "shared/subnav" %>
 
-    <div class="container is-small">
-      <div>
+    <div class="container is-small is-padded">
+      <div class="has-text-centered">
         <% flash.each do |k,v| %>
           <div class=" <%= k %>"><%= v %></div>
         <% end unless flash.empty? %>
