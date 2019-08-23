@@ -7,7 +7,7 @@
   <div class="field">
     <%= form.label :date_range, class: "label" %>
     <div class="control">
-      <%= form.datetime_field :date_range, class: "input", type: "datetime", autocomplete: "off", value: @outreach_event.date_range %>
+      <%= form.datetime_field :date_range, class: "input", type: "datetime", autocomplete: "off", value: @outreach_event.date_range, data: {'start-date': @outreach_event.start_time.strftime(OutreachEvent::DATE_FORMAT), 'end-date': @outreach_event.end_time.strftime(OutreachEvent::DATE_FORMAT), 'is-range': true} %>
     </div>
   </div>
 
