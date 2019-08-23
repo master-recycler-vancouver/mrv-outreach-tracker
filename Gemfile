@@ -42,6 +42,7 @@ gem 'font-awesome-sass', '~> 5.9.0'
 gem 'devise', '~> 4.6.2'
 gem 'devise_invitable', '~> 2.0.1'
 gem 'dotenv-rails', '2.7.2', require: 'dotenv/rails-now'
+gem "nokogiri", '~> 1.10.4'
 gem 'pundit', '~> 2.0.1'
 gem 'yard', '~> 0.9.20'
 
