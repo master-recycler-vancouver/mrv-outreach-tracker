@@ -7,10 +7,16 @@ class OutreachEvent < ApplicationRecord
   attr_accessor :date_range
 
   def date_range
-  	start_str = self.start_time.strftime(DATE_FORMAT)
-  	end_str = self.end_time.strftime(DATE_FORMAT)
+  	date_str = ''
 
-  	start_str + ' - ' + end_str
+  	if self.start_time.present? && self.end_time.present? 
+	  	start_str = self.start_time.strftime(DATE_FORMAT)
+	  	end_str = self.end_time.strftime(DATE_FORMAT)
+
+	  	date_str = start_str + ' - ' + end_str
+	  end
+
+	  date_str
   end
 
   def date_range=(val)
