@@ -7,7 +7,6 @@ function initDatepickers() {
   var calendarOptions = {
     isRange: true,
     minuteSteps: 15, //in case we ever use this for duration, 15 minute minimum,
-    dateFormat: "DD/MM/YYYY",
     labelFrom: "Start Date",
     labelTo: "End Date"
   };

@@ -1,6 +1,6 @@
 class OutreachEvent < ApplicationRecord
   # NOTE: This MUST correspond to the bulma calendar dateFormat option
-  DATE_FORMAT = "%d/%m/%Y"
+  DATE_FORMAT = "%m/%d/%Y"
 
   belongs_to :user
 
