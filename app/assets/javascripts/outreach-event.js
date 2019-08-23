@@ -3,6 +3,7 @@ document.addEventListener("turbolinks:load", function() {
 });
 
 function initDatepickers() {
+  //TODO: set minDate and maxDate?
   var calendarOptions = {
     isRange: true,
     minuteSteps: 15, //in case we ever use this for duration, 15 minute minimum,
