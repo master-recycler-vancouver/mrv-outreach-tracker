@@ -16,7 +16,7 @@
         <tr class="tr">
           <td class="td"><%= format_date(outreach_event.start_time) %></td>
           <td class="td"><%= format_date(outreach_event.end_time) %></td>
-          <td class="td"><%= outreach_event.description.truncate(64) %></td>
+          <td class="td"><%= truncate_string(outreach_event.description) %></td>
           <td class="td"><%= outreach_event.duration_in_minutes %></td>
           <td class="td"><%= outreach_event.people_reached %></td>
           <td class="td"><%= link_to 'Show', outreach_event_path(outreach_event) %></td>
