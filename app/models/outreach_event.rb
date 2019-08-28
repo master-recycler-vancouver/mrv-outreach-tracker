@@ -3,6 +3,8 @@ class OutreachEvent < ApplicationRecord
   DATE_FORMAT = "%m/%d/%Y"
 
   belongs_to :user
+  has_many :collaborations
+  has_many :collaborators, through: :collaborations, source: :user
 
   attr_accessor :date_range
 

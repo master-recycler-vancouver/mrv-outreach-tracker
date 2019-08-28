@@ -10,13 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+
+//= require jquery
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
 
 // Need vendor before outreach-event
-//= require_tree ./vendor 
+//= require_tree ./vendor
 //= require outreach-event
+//= require select2-full
 
 // Then the rest
-//= require_tree . 
+//= require_tree .

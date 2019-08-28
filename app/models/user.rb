@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :outreach_events
+  has_many :collaborations
+  has_many :collaborated_outreach_events, through: :collaborations, source: :outreach_event
 
   def full_name
     "#{first_name} #{last_name}"
