@@ -29,5 +29,10 @@
   <%= @outreach_event.notes %>
 </p>
 
+<p>
+  <strong>Collaborators:</strong>
+  <%= @outreach_event.collaborators.map(&:full_name).join(", ") %>
+</p>
+
 <%= link_to 'Edit', edit_outreach_event_path(@outreach_event) %>
 <%= link_to 'Back', outreach_events_path %>

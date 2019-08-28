@@ -27,7 +27,7 @@ class OutreachEventsController < ApplicationController
 
 	def update
 		@outreach_event = authorize OutreachEvent.find(params[:id])
- 
+
 		if @outreach_event.update(outreach_event_params)
 			redirect_to @outreach_event
 		else
@@ -49,7 +49,8 @@ private
 			:description,
 			:duration_in_minutes,
 			:people_reached,
-			:notes,
+      :notes,
+      collaborator_ids: []
   	)
 	end
 

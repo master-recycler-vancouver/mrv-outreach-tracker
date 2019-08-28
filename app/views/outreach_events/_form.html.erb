@@ -38,9 +38,13 @@
       <%= form.text_area :notes, class: "textarea" %>
     </div>
   </div>
- 
+
+  <div class="field">
+    <%= form.label :colaborator_ids, "Collaborators", class: "label" %>
+    <%= form.select :collaborator_ids, options_from_collection_for_select(User.all, 'id', 'first_name', @outreach_event.collaborator_ids), {}, { class: "js-form-select2", multiple: "multiple" } %>
+  </div>
+
   <div class="control">
     <%= form.submit class: "button is-primary" %>
   </div>
- 
 <% end %>
