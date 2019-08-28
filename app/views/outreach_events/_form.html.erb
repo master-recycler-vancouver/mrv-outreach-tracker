@@ -6,35 +6,35 @@
  
   <div class="field">
     <%= form.label :date_range, class: "label" %>
-    <div clas="control">
-      <%= form.datetime_field :date_range, class: "input", type: "datetime", autocomplete: "off" %>
+    <div class="control">
+      <%= form.datetime_field :date_range, class: "input", type: "datetime", autocomplete: "off", value: @outreach_event.date_range, data: {'start-date': defined? @outreach_event.start_time.strftime(OutreachEvent::DATE_FORMAT), 'end-date': defined? @outreach_event.end_time.strftime(OutreachEvent::DATE_FORMAT)} %>
     </div>
   </div>
 
   <div class="field">
     <%= form.label :description, class: "label" %>
-    <div clas="control">
+    <div class="control">
       <%= form.text_area :description, class: "textarea" %>
     </div>
   </div>
 
   <div class="field">
     <%= form.label :duration_in_minutes, class: "label" %>
-    <div clas="control">
+    <div class="control">
       <%= form.number_field :duration_in_minutes, class: "input" %>
     </div>
   </div>
 
   <div class="field">
     <%= form.label :people_reached, class: "label" %>
-    <div clas="control">
+    <div class="control">
       <%= form.number_field :people_reached, class: "input" %>
     </div>
   </div>
 
   <div class="field">
     <%= form.label :notes, class: "label" %>
-    <div clas="control">
+    <div class="control">
       <%= form.text_area :notes, class: "textarea" %>
     </div>
   </div>
