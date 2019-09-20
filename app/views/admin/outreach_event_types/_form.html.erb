@@ -1,0 +1,13 @@
+<%= form_for [:admin, @outreach_event_type] do |form| %>
+
+  <div class="field">
+    <%= form.label :name, class: "label" %>
+    <div class="control">
+      <%= form.text_area :name, class: "input" %>
+    </div>
+  </div>
+
+  <div class="control">
+    <%= form.submit class: "button is-primary" %>
+  </div>
+<% end %>
