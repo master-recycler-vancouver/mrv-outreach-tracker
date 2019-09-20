@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :outreach_events, only: :index
+    resources :outreach_event_types, except: [:show]
   end
 end

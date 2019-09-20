@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_07_045846) do
+ActiveRecord::Schema.define(version: 2019_09_04_195115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,21 @@ ActiveRecord::Schema.define(version: 2019_08_07_045846) do
     t.datetime "updated_at", null: false
     t.index ["outreach_event_id"], name: "index_collaborations_on_outreach_event_id"
     t.index ["user_id"], name: "index_collaborations_on_user_id"
+  end
+
+  create_table "outreach_event_type_assignments", force: :cascade do |t|
+    t.bigint "outreach_event_id"
+    t.bigint "outreach_event_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["outreach_event_id"], name: "index_outreach_event_type_assignments_on_outreach_event_id"
+    t.index ["outreach_event_type_id"], name: "index_outreach_event_type_assignments_on_outreach_event_type_id"
+  end
+
+  create_table "outreach_event_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "outreach_events", force: :cascade do |t|

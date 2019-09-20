@@ -50,7 +50,8 @@ private
 			:duration_in_minutes,
 			:people_reached,
       :notes,
-      collaborator_ids: []
+      collaborator_ids: [],
+      outreach_event_type_ids: []
   	)
 	end
 
