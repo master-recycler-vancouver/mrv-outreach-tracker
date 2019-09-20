@@ -16,24 +16,28 @@ class OutreachEventsController < ApplicationController
   end
 
   def create
-  	@outreach_event = authorize current_user.outreach_events.build(outreach_event_params)
+    @outreach_event = authorize current_user.outreach_events.build(outreach_event_params)
 
-		if @outreach_event.save
-			redirect_to @outreach_event
-		else
-			render 'new'
-		end
+    if @outreach_event.save
+      flash[:success] = "Successfully created outreach event."
+      redirect_to @outreach_event
+    else
+      flash.now[:error] = "Failed to create outreach event. Errors: #{error_messages(@outreach_event)}"
+      render 'new'
+    end
   end
 
-	def update
-		@outreach_event = authorize OutreachEvent.find(params[:id])
+  def update
+    @outreach_event = authorize OutreachEvent.find(params[:id])
 
-		if @outreach_event.update(outreach_event_params)
-			redirect_to @outreach_event
-		else
-  		render 'edit'
-  	end
-	end
+    if @outreach_event.update(outreach_event_params)
+      flash[:success] = "Successfully updated outreach event."
+      redirect_to @outreach_event
+    else
+      flash.now[:error] = "Failed to update. Errors: #{error_messages(@outreach_event)}"
+      render 'edit'
+    end
+  end
 
 	def destroy
 		@outreach_event = authorize OutreachEvent.find(params[:id])

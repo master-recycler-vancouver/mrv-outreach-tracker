@@ -16,9 +16,13 @@
     <%= render partial: "shared/subnav" %>
 
     <div class="container is-small is-padded">
-      <div class="has-text-centered">
-        <% flash.each do |k,v| %>
-          <div class=" <%= k %>"><%= v %></div>
+      <div class="">
+        <% flash.each do |type, message| %>
+          <div class="message <%= flash_type_class(type) %>">
+            <div class="message-body">
+              <%= message %>
+            </div>
+          </div>
         <% end unless flash.empty? %>
       </div>
 

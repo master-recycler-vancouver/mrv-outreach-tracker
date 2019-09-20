@@ -11,4 +11,15 @@ module ApplicationHelper
   def format_date(date)
     date.strftime("%m/%d/%Y")
   end
+
+  def flash_type_class(flash_type)
+    case flash_type.to_sym
+    when :alert, :danger, :error
+      "is-warning"
+    when :notice, :success
+      "is-success"
+    else
+      "is-info"
+    end
+  end
 end

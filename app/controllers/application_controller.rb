@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     is_a?(::HomeController)
   end
 
+  def error_messages(obj)
+    obj.errors.full_messages.join(", ")
+  end
+
   private
 
   def user_not_authorized
