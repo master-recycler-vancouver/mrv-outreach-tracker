@@ -2,4 +2,11 @@
   Outreach Events
 <% end %>
 
-<%= render partial: "outreach_events/outreach_events_list", locals: {outreach_events: @outreach_events} %>
+<% content_for :page_header_action do %>
+
+    <h4 class="heading mr-1 mb-0">Total<br/>Hours</h4>
+    <div class="pill is-yellow mr-4"><%= @outreach_events.sum(:duration_in_minutes) / 60.0 %></div>
+
+<% end %>
+
+<%= render partial: "admin/outreach_events/outreach_events_list", locals: {outreach_events: @outreach_events} %>

@@ -31,7 +31,7 @@
 
 <p>
   <strong>Collaborators:</strong>
-  <%= @outreach_event.collaborators.map(&:full_name).join(", ") %>
+  <%= collaborator_list(@outreach_event) %>
 </p>
 
 <p>
