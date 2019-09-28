@@ -1,0 +1,44 @@
+<% content_for :page_header do %>
+  <%= current_user.full_name %>
+<% end %>
+
+<% content_for :page_header_action do %>
+  <%= link_to 'Edit Profile', profile_edit_path, class: "button is-primary" %>
+<% end %>
+
+<div class="mb-5">
+  <h4 class="title is-4">About Me</h4>
+  <p><%= current_user.about_me %></p>
+</div>
+
+<div>
+  <h4 class="title is-4">Contact Info</h4>
+
+  <div>
+    <span class="title is-6">Email:</span> <a href="mailto:<%= current_user.email %>"><%= current_user.email %></a>
+  </div>
+
+  <div>
+    <span class="title is-6">Facebook:</span> <a href="<%= facebook_url(current_user.facebook_handle) %>"><%= current_user.facebook_handle %></a>
+  </div>
+
+  <div>
+    <span class="title is-6">Instagram:</span> <a href="<%= instagram_url(current_user.instagram_handle) %>"><%= current_user.instagram_handle %></a>
+  </div>
+
+  <div>
+    <span class="title is-6">Linkedin:</span> <a href="<%= linkedin_url(current_user.linkedin_handle) %>"><%= current_user.linkedin_handle %></a>
+  </div>
+
+  <div>
+    <span class="title is-6">Twitter:</span> <a href="<%= twitter_url(current_user.twitter_handle) %>"><%= current_user.twitter_handle %></a>
+  </div>
+
+</div>
+
+<div>
+  <span class="title is-6">Outreach Event Types Interested In:</span>
+  <% current_user.outreach_event_types.each do |oet| %>
+    <span class="tag is-info"><%= oet.name %></span>
+  <% end %>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_04_195115) do
+ActiveRecord::Schema.define(version: 2019_09_30_193331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2019_09_04_195115) do
     t.datetime "updated_at", null: false
     t.index ["outreach_event_id"], name: "index_outreach_event_type_assignments_on_outreach_event_id"
     t.index ["outreach_event_type_id"], name: "index_outreach_event_type_assignments_on_outreach_event_type_id"
+  end
+
+  create_table "outreach_event_type_interests", force: :cascade do |t|
+    t.bigint "outreach_event_type_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["outreach_event_type_id"], name: "index_outreach_event_type_interests_on_outreach_event_type_id"
+    t.index ["user_id"], name: "index_outreach_event_type_interests_on_user_id"
   end
 
   create_table "outreach_event_types", force: :cascade do |t|
@@ -71,6 +80,11 @@ ActiveRecord::Schema.define(version: 2019_09_04_195115) do
     t.integer "invitations_count", default: 0
     t.string "first_name"
     t.string "last_name"
+    t.text "about_me"
+    t.string "facebook_handle"
+    t.string "instagram_handle"
+    t.string "linkedin_handle"
+    t.string "twitter_handle"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invitations_count"], name: "index_users_on_invitations_count"
