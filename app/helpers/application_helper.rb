@@ -22,6 +22,7 @@ module ApplicationHelper
     else
       "is-info"
     end
+  end
 
   def truncate_string(string, limit = TRUNCATE_LIMIT)
     string.truncate(limit)
