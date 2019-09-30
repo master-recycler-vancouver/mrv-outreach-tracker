@@ -5,6 +5,8 @@ class OutreachEvent < ApplicationRecord
   belongs_to :user
   has_many :collaborations
   has_many :collaborators, through: :collaborations, source: :user
+  has_many :outreach_event_type_assignments
+  has_many :outreach_event_types, through: :outreach_event_type_assignments
 
   validates_presence_of :start_time, :end_time
   validate :end_time_after_start_time

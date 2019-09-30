@@ -3,6 +3,10 @@
     max-width: 960px;
   }
 
+  &.is-medium {
+    max-width: 1200px;
+  }
+
   &.is-padded {
     padding: 0 $space-3;
   }

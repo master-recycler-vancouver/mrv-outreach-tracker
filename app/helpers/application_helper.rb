@@ -1,4 +1,5 @@
 module ApplicationHelper
+  TRUNCATE_LIMIT = 64
 
   def navbar_user_class
     if current_user && current_user.admin?
@@ -21,5 +22,8 @@ module ApplicationHelper
     else
       "is-info"
     end
+
+  def truncate_string(string, limit = TRUNCATE_LIMIT)
+    string.truncate(limit)
   end
 end

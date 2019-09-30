@@ -40,8 +40,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :colaborator_ids, "Collaborators", class: "label" %>
+    <%= form.label :collaborator_ids, "Collaborators", class: "label" %>
     <%= form.select :collaborator_ids, options_from_collection_for_select(User.all, 'id', 'first_name', @outreach_event.collaborator_ids), {}, { class: "js-form-select2", multiple: "multiple" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :outreach_event_type_ids, "Outreach Event Types", class: "label" %>
+    <%= form.select :outreach_event_type_ids, options_from_collection_for_select(OutreachEventType.all, 'id', 'name', @outreach_event.outreach_event_type_ids), {}, { class: "js-form-select2", multiple: "multiple" } %>
   </div>
 
   <div class="control">

@@ -9,7 +9,7 @@ class OutreachEventPolicy < ApplicationPolicy
   end
 
   def update?
-    user.student? && record.user == user
+    user.admin? || (user.student? && record.user == user)
   end
 
   def destroy?
