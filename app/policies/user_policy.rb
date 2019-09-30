@@ -4,4 +4,8 @@ class UserPolicy < ApplicationPolicy
     record == user
   end
 
+  def show?
+    true
+  end
+
 end

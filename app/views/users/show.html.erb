@@ -1,0 +1,15 @@
+<% content_for :page_header do %>
+  <%= @user.full_name %>
+<% end %>
+
+<div>
+	<p>
+		<strong>Name:</strong>
+	  <%= @user.full_name %>
+	</p>
+	 
+	<p>
+	  <strong>Email:</strong>
+	  <%= @user.email %>
+	</p>
+</div>
