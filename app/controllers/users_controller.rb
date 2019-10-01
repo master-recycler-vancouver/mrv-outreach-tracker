@@ -29,7 +29,7 @@ class UsersController < ApplicationController
         :instagram_handle,
         :linkedin_handle,
         :twitter_handle,
-
+        interest_list: [],
         outreach_event_type_ids: []
       )
     end

@@ -5,6 +5,9 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable,
          :recoverable, :rememberable, :validatable
 
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+  acts_as_taggable_on :interests
+
   has_many :outreach_events
   has_many :collaborations
   has_many :collaborated_outreach_events, through: :collaborations, source: :outreach_event

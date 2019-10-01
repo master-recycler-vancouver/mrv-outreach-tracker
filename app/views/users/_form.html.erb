@@ -62,6 +62,11 @@
     <%= form.select :outreach_event_type_ids, options_from_collection_for_select(OutreachEventType.all, 'id', 'name', current_user.outreach_event_type_ids), {}, { class: "js-form-select2", multiple: "multiple" } %>
   </div>
 
+  <div class="field">
+    <%= form.label :interest_list, "I am interested in...", class: "label" %>
+    <%= form.select :interest_list, options_from_collection_for_select(ActsAsTaggableOn::Tag.all, 'name', 'name', current_user.interest_list), {}, { class: "js-form-select2", multiple: "multiple", data: {"select2-tags-enabled": true} } %>
+  </div>
+
   <div class="control">
     <%= form.submit "Update", class: "button is-primary" %>
   </div>
