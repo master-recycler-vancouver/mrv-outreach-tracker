@@ -9,7 +9,7 @@ function initializeSelect2(selector) {
 
     $input.select2({
       dropdownAutoWidth: false,
-      placeholder: "select2PlaceholderText" in $input.data() ? $input.data().select2PlaceholderText : "Select",
+      placeholder: $input.data().select2PlaceholderText || "Select",
       width: "100%"
     });
   });
