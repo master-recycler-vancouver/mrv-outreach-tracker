@@ -1,8 +1,8 @@
 <% content_for :page_header do %>
-  <%= user.full_name %>
+  <%= @user.full_name %>
 <% end %>
 
-<% if current_user == user %>
+<% if current_user == @user %>
   <% content_for :page_header_action do %>
     <%= link_to 'Edit Profile', profile_edit_path, class: "button is-primary" %>
   <% end %>
@@ -10,44 +10,44 @@
 
 <div class="mb-5">
   <h4 class="title is-4">About Me</h4>
-  <p><%= user.about_me %></p>
+  <p><%= @user.about_me %></p>
 </div>
 
 <div>
   <h4 class="title is-4">Contact Info</h4>
 
   <div>
-    <span class="title is-6">Email:</span> <a href="mailto:<%= user.email %>"><%= user.email %></a>
+    <span class="title is-6">Email:</span> <a href="mailto:<%= @user.email %>"><%= @user.email %></a>
   </div>
 
   <div>
-    <span class="title is-6">Facebook:</span> <a href="<%= facebook_url(user.facebook_handle) %>"><%= user.facebook_handle %></a>
+    <span class="title is-6">Facebook:</span> <a href="<%= facebook_url(@user.facebook_handle) %>"><%= @user.facebook_handle %></a>
   </div>
 
   <div>
-    <span class="title is-6">Instagram:</span> <a href="<%= instagram_url(user.instagram_handle) %>"><%= user.instagram_handle %></a>
+    <span class="title is-6">Instagram:</span> <a href="<%= instagram_url(@user.instagram_handle) %>"><%= @user.instagram_handle %></a>
   </div>
 
   <div>
-    <span class="title is-6">Linkedin:</span> <a href="<%= linkedin_url(user.linkedin_handle) %>"><%= user.linkedin_handle %></a>
+    <span class="title is-6">Linkedin:</span> <a href="<%= linkedin_url(@user.linkedin_handle) %>"><%= @user.linkedin_handle %></a>
   </div>
 
   <div>
-    <span class="title is-6">Twitter:</span> <a href="<%= twitter_url(user.twitter_handle) %>"><%= user.twitter_handle %></a>
+    <span class="title is-6">Twitter:</span> <a href="<%= twitter_url(@user.twitter_handle) %>"><%= @user.twitter_handle %></a>
   </div>
 
 </div>
 
 <div>
   <span class="title is-6">I'm interested in these outreach event types:</span>
-  <% user.outreach_event_types.each do |oet| %>
+  <% @user.outreach_event_types.each do |oet| %>
     <span class="tag is-light"><%= oet.name %></span>
   <% end %>
 </div>
 
 <div>
   <span class="title is-6">I am interested in:</span>
-  <% user.interest_list.each do |interest| %>
+  <% @user.interest_list.each do |interest| %>
     <span class="tag is-light"><%= interest %></span>
   <% end %>
 </div>
