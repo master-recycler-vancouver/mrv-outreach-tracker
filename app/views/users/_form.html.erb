@@ -1,0 +1,73 @@
+<%= form_for current_user do |form| %>
+
+  <div class="field">
+    <%= form.label :first_name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :first_name, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :last_name, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :email, class: "label" %>
+    <div class="control">
+      <%= form.text_field :email, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :about_me, class: "label" %>
+  
+    <div class="control">
+      <%= form.text_area :about_me, class: "textarea", rows: 4 %> 
+    </div>
+  </div>
+
+   <div class="field">
+    <%= form.label :facebook_handle, class: "label" %>
+    <div class="control">
+      <%= form.text_field :facebook_handle, class: "input" %>
+    </div>
+  </div>
+
+   <div class="field">
+    <%= form.label :instagram_handle, class: "label" %>
+    <div class="control">
+      <%= form.text_field :instagram_handle, class: "input" %>
+    </div>
+  </div>
+
+   <div class="field">
+    <%= form.label :linkedin_handle, class: "label" %>
+    <div class="control">
+      <%= form.text_field :linkedin_handle, class: "input" %>
+    </div>
+  </div>
+
+   <div class="field">
+    <%= form.label :twitter_handle, class: "label" %>
+    <div class="control">
+      <%= form.text_field :twitter_handle, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :outreach_event_type_ids, "Outreach Event Types Interested In", class: "label" %>
+    <%= form.select :outreach_event_type_ids, options_from_collection_for_select(OutreachEventType.all, 'id', 'name', current_user.outreach_event_type_ids), {}, { class: "js-form-select2", multiple: "multiple" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interest_list, "I am interested in...", class: "label" %>
+    <%= form.select :interest_list, options_from_collection_for_select(ActsAsTaggableOn::Tag.all, 'name', 'name', current_user.interest_list), {}, { class: "js-form-select2", multiple: "multiple", data: {"select2-tags-enabled": true} } %>
+  </div>
+
+  <div class="control">
+    <%= form.submit "Update", class: "button is-primary" %>
+  </div>
+<% end %>

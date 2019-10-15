@@ -27,4 +27,20 @@ module ApplicationHelper
   def truncate_string(string, limit = TRUNCATE_LIMIT)
     string.truncate(limit)
   end
+
+  def facebook_url(handle)
+    "https://www.facebook.com/#{handle}"
+  end
+
+  def instagram_url(handle)
+    "https://instagram.com/#{handle}"
+  end
+
+  def linkedin_url(handle)
+    "https://www.linkedin.com/in/#{handle}"
+  end
+
+  def twitter_url(handle)
+    "http://twitter.com/#{handle}"
+  end
 end

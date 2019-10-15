@@ -1,6 +1,10 @@
 class UserPolicy < ApplicationPolicy
 
-  def profile?
+  def show?
+    record == user
+  end
+
+  def update?
     record == user
   end
 
