@@ -5,7 +5,11 @@ class UsersController < ApplicationController
   end
 	
   def show
-  	@user = authorize User.find(params[:id])
+    if params[:id]
+      @user = authorize User.find(params[:id])
+    else
+      @user = authorize current_user
+    end
   end
 
   def edit
