@@ -39,5 +39,7 @@
   <%= @outreach_event.outreach_event_types.map(&:name).join(", ") %>
 </p>
 
-<%= link_to 'Edit', edit_outreach_event_path(@outreach_event) %>
+<% if current_user.admin? || @outreach_event.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_outreach_event_path(@outreach_event) %>
+<% end %>
 <%= link_to 'Back', outreach_events_path %>
