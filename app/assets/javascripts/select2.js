@@ -10,7 +10,8 @@ function initializeSelect2(selector) {
     $input.select2({
       dropdownAutoWidth: false,
       placeholder: $input.data().select2PlaceholderText || "Select",
-      width: "100%"
+      width: "100%",
+      tags: $input.data().select2TagsEnabled || false
     });
   });
 }
