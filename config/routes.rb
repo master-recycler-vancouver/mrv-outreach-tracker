@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users #, :controllers => { registrations: "registrations", sessions: "sessions", invitations: "invitations", password: "passwords" }
+  devise_for :users, controllers: { 
+    invitations: "admin/users/invitations"
+  }
   root "home#index"
 
   resources :cohorts, only: [:index, :show]
