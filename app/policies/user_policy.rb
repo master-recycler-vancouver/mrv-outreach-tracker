@@ -1,7 +1,8 @@
 class UserPolicy < ApplicationPolicy
 
   def show?
-    record == user
+    # any logged in user should be able to see other students
+    true
   end
 
   def update?

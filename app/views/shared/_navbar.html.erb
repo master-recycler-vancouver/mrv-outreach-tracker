@@ -22,11 +22,28 @@
     <% if current_user %>
       <div class="navbar-end">
           <% if current_user.admin? %>
-            <%= link_to "Outreach Events", admin_outreach_events_path, class: "navbar-item" %>
-            <%= link_to "Outreach Event Types", admin_outreach_event_types_path, class: "navbar-item" %>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a href="#" class="navbar-link">Outreach Events</a>
+              <div class="navbar-dropdown">
+                <%= link_to "Outreach Events", admin_outreach_events_path, class: "navbar-item" %>
+                <%= link_to "Outreach Event Types", admin_outreach_event_types_path, class: "navbar-item" %>
+              </div>
+            </div>
           <% else %>
             <%= link_to "Outreach Events", outreach_events_path, class: "navbar-item" %>
           <% end %>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="#" class="navbar-link">People of MRV</a>
+          <div class="navbar-dropdown">
+            <%= link_to "People of MRV", "#", class: "navbar-item" %>
+            <%= link_to "Cohorts", cohorts_path, class: "navbar-item" %>
+
+            <% if current_user.admin? %>
+              <%= link_to "Invite New Student", new_user_invitation_path, class: "navbar-item" %>
+            <% end %>
+          </div>
+        </div>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a href="#" class="navbar-link">Account</a>

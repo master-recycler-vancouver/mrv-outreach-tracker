@@ -1,0 +1,29 @@
+<h2><%= t "devise.invitations.new.header" %></h2>
+
+<%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <% resource.class.invite_key_fields.each do |field| -%>
+    <div class="field">
+      <%= f.label field, class: "label"%>
+      <div class="control">
+        <%= f.text_field field, class: "input" %>
+      </div>
+    </div>
+  <% end -%>
+
+
+  <div class="field">
+    <div class="control">
+      <div class="select">
+      <%= f.select :cohort_id, options_from_collection_for_select(Cohort.all, 'id', 'name', nil), {prompt: "Select Cohort" }, { class: "" } %>
+    </div>
+    </div>
+  </div>
+
+  <%= f.hidden_field :role, value: :student %>
+
+  <div class="control">
+    <%= f.submit t("devise.invitations.new.submit_button"),  class: "button is-primary" %>
+  </div>
+<% end %>
