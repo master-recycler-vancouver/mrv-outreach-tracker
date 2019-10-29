@@ -3,6 +3,7 @@
     <% if index % User::INDEX_TILES_PER_ROW == 0 %>
       <div class="tile is-ancestor">
     <% end %>
+        <!-- tile has 12 horizontal size modifiers, is-1 to is-12, so calculating based on tiles per row -->
         <div class="tile is-parent is-<%= (12 / User::INDEX_TILES_PER_ROW).to_s %>">
           <%= render partial: "user_card", locals: {user: user} %>
         </div>
