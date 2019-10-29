@@ -1,25 +1,13 @@
-<div class="table-container">
-  <table class="table is-fullwidth is-striped is-hoverable">
-    <thead class="thead">
-      <tr class="tr">
-        <th class="th">First Name</th>
-        <th class="th">Last Name</th>
-        <th class="th">Email</th>
-        <th class="th">Role</th>
-        <th class="th" colspan="1"></th>
-      </tr>
-    </thead>
-    
-    <tbody class="tbody">
-      <% users.each do |user| %>
-        <tr class="tr">
-          <td class="td"><%= user.first_name %></td>
-          <td class="td"><%= user.last_name %></td>
-          <td class="td"><%= user.email %></td>
-          <td class="td"><%= user.role %></td>
-          <td class="td"><%= link_to 'Show', user_path(user) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div>
+  <% users.each_with_index do |user, index| %>
+    <% if index % User::INDEX_TILES_PER_ROW == 0 %>
+      <div class="tile is-ancestor">
+    <% end %>
+        <div class="tile is-parent is-<%= (12 / User::INDEX_TILES_PER_ROW).to_s %>">
+          <%= render partial: "user_card", locals: {user: user} %>
+        </div>
+    <% if index % User::INDEX_TILES_PER_ROW == User::INDEX_TILES_PER_ROW - 1 %>
+      </div>
+    <% end %> 
+  <% end %>
 </div>
