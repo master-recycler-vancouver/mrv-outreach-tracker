@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  enum role: [ :admin, :facilitator, :student ]
+  INDEX_TILES_PER_ROW = 3
+
+  enum role: [ :admin, :student ]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable,
@@ -13,6 +15,9 @@ class User < ApplicationRecord
   has_many :collaborated_outreach_events, through: :collaborations, source: :outreach_event
   has_many :outreach_event_type_interests
   has_many :outreach_event_types, through: :outreach_event_type_interests
+  belongs_to :cohort, optional: true
+
+  validate :student_belongs_to_cohort
 
   def full_name
     "#{first_name} #{last_name}"
@@ -41,6 +46,10 @@ class User < ApplicationRecord
         .downcase
         .gsub("@", "")        # remove @ symbol
         .gsub(/\s+/, "")      # remove all spaces
+    end
+
+    def student_belongs_to_cohort
+      errors.add(:cohort_id, "student must belong to a chort") if self.student? && cohort_id.blank?
     end
 
 end
