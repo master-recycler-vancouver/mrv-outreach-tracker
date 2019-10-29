@@ -32,12 +32,11 @@
           <% else %>
             <%= link_to "Outreach Events", outreach_events_path, class: "navbar-item" %>
           <% end %>
-          <%= link_to "People of MRV", users_path, class: "navbar-item" %>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a href="#" class="navbar-link">People of MRV</a>
           <div class="navbar-dropdown">
-            <%= link_to "People of MRV", "#", class: "navbar-item" %>
+            <%= link_to "People of MRV", users_path, class: "navbar-item" %>
             <%= link_to "Cohorts", cohorts_path, class: "navbar-item" %>
 
             <% if current_user.admin? %>
