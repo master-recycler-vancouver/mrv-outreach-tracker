@@ -1,16 +1,11 @@
 <div class="card tile is-child">
   <div class="card-image">
     <figure class="image is-4by3">
-      <%= link_to image_tag("https://bulma.io/images/placeholders/1280x960.png", alt:"User photo"), user_path(user) %>
+      <%= link_to image_tag("https://bulma.io/images/placeholders/1280x960.png", alt:user.full_name), user_path(user) %>
     </figure>
   </div>
   <div class="card-content">
     <div class="media">
-      <div class="media-left">
-        <figure class="image is-48x48">
-          <%= link_to image_tag("https://bulma.io/images/placeholders/96x96.png", alt:"User photo"), user_path(user) %>
-        </figure>
-      </div>
       <div class="media-content">
         <p class="title is-4"><%= link_to user.full_name, user_path(user) %></p>
         <p class="subtitle is-6"><%= user.email %></p>
