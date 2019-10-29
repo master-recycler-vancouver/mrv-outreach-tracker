@@ -1,5 +1,6 @@
 <% content_for :page_header do %>
   <%= @user.full_name %>
+  <h6 class="title is-6">Cohort: <%= current_user.cohort.name %></h6>
 <% end %>
 
 <% if current_user == @user %>
@@ -12,6 +13,7 @@
   <h4 class="title is-4">About Me</h4>
   <p><%= @user.about_me %></p>
 </div>
+
 
 <div>
   <h4 class="title is-4">Contact Info</h4>

@@ -1,24 +1,21 @@
 class UsersController < ApplicationController
-  
+  before_action :get_user, only: [:show, :edit, :update]
+
   def index
-  	@users = policy_scope User.all
+    @users = policy_scope User.all
   end
-	
+
   def show
-    if params[:id]
-      @user = authorize User.find(params[:id])
-    else
-      @user = authorize current_user
-    end
+    authorize @user
   end
 
   def edit
-    authorize current_user
+    authorize @user
   end
 
   def update
-    authorize current_user
-    if current_user.update(user_params)
+    authorize @user
+    if @user.update(user_params)
       redirect_to profile_path
     else
       render :edit
@@ -26,6 +23,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+    def get_user
+      @user = params[:id].present?  ? User.find(params[:id]) : current_user
+    end
 
     def user_params
       params.require(:user).permit(
