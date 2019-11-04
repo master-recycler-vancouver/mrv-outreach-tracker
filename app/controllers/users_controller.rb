@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :get_user, only: [:show, :edit, :update]
 
+  def index
+    @users = policy_scope User.all
+  end
+
   def show
     authorize @user
   end
