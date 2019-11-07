@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  INDEX_TILES_PER_ROW = 3
-
   enum role: [ :admin, :student ]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
