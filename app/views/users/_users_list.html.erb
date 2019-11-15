@@ -1,3 +1,35 @@
+
+  <%= search_form_for @q, class: "columns align-items-flex-end" do |f| %>
+    <div class="field column is-full-mobile is-one-quarter is-marginless">
+      <%= f.label :first_name_or_last_name_or_email_cont, "Name", class: "label" %>
+
+      <div class="control">
+        <%= f.search_field :first_name_or_last_name_or_email_cont, class: "input" %>
+      </div>
+    </div>
+
+    <div class="field column is-full-mobile is-one-quarter is-marginless">
+      <%= f.label :outreach_event_types_name_cont, "Outreach Interests", class: "label" %>
+      <div class="control">
+        <%= f.search_field :outreach_event_types_name_cont, class: "input" %>
+      </div>
+    </div>
+
+    <div class="field column is-full-mobile is-one-quarter is-marginless">
+      <%= f.label :cohort_name_cont, "Cohort Name", class: "label" %>
+      <div class="control">
+        <%= f.search_field :cohort_name_cont, class: "input" %>
+      </div>
+    </div>
+
+    <div class="field column is-full-mobile is-one-quarter">
+      <div class="control">
+        <%= f.submit class: "button is-primary" %>
+      </div>
+    </div>
+  <% end %>
+
+
 <div class="columns is-multiline">
   <% users.each_with_index do |user, index| %>
     <div class="tile is-parent column is-one-quarter">

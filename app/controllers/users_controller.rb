@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :get_user, only: [:show, :edit, :update]
 
   def index
-    @users = policy_scope User.all
+    @q = User.ransack(params[:q])
+    @users = policy_scope @q.result(distinct: true).includes(:outreach_event_types, :cohort)
   end
 
   def show
