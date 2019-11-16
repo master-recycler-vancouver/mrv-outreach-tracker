@@ -3,6 +3,13 @@
   <% if @outreach_event.errors.any? %>
     <% #TODO %>
   <% end %>
+
+  <div class="field">
+    <%= form.label :title, class: "label" %>
+    <div class="control">
+      <%= form.text_field :title, class: "input" %>
+    </div>
+  </div>
  
   <div class="field">
     <%= form.label :date_range, class: "label" %>
