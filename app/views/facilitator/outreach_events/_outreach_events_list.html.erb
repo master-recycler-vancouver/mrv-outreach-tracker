@@ -1,0 +1,29 @@
+<div class="table-container">
+  <table class="table is-fullwidth is-striped is-hoverable">
+    <thead class="thead">
+      <tr class="tr">
+        <th class="th">Master Recycler</th>
+        <th class="th">Title</th>
+        <th class="th">Start Date</th>
+        <th class="th">End Date</th>
+        <th class="th">Description</th>
+        <th class="th">Duration in minutes</th>
+        <th class="th">People Reached</th>
+      </tr>
+    </thead>
+    
+    <tbody class="tbody">
+      <% outreach_events.each do |outreach_event| %>
+        <tr class="tr">
+          <td class="td"><%= outreach_event.user.full_name %></td>
+          <td class="td"><%= link_to outreach_event.title, outreach_event_path(outreach_event) %></td>
+          <td class="td"><%= format_date(outreach_event.start_time) %></td>
+          <td class="td"><%= format_date(outreach_event.end_time) %></td>
+          <td class="td"><%= truncate_string(outreach_event.description) %></td>
+          <td class="td"><%= outreach_event.duration_in_minutes %></td>
+          <td class="td"><%= outreach_event.people_reached %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
