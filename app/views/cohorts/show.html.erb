@@ -1,6 +1,9 @@
-<% content_for :page_header do %>
-  <%= @cohort.name %>
 
- <% # TODO: output users list %>
+<% content_for :page_header do %>
+  People of MRV: <%= @cohort.name %>
 <% end %>
+
+<%= render partial: "users/users_list", locals: { users: @users } %>
+
+
 

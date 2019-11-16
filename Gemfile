@@ -46,6 +46,7 @@ gem 'dotenv-rails', '2.7.2', require: 'dotenv/rails-now'
 gem 'jquery-rails', '~> 4.3.5'
 gem "nokogiri", '~> 1.10.4'
 gem 'pundit', '~> 2.0.1'
+gem 'ransack', '~> 2.3.0'
 gem "select2-rails", '~> 4.0.3'
 gem 'yard', '~> 0.9.20'
 
