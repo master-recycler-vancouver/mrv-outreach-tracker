@@ -1,6 +1,7 @@
 class CohortPolicy < ApplicationPolicy
   def show?
-    user.admin? || user.student?
+    # any logged in user should be able to see cohorts
+    true
   end
 
   def create?
@@ -17,7 +18,7 @@ class CohortPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.all if (user.admin? || user.student?)
+      scope.all
     end
   end
 end
