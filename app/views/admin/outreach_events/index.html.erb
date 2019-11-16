@@ -5,7 +5,7 @@
 <% content_for :page_header_action do %>
 
     <h4 class="heading mr-1 mb-0">Total<br/>Hours</h4>
-    <div class="pill is-yellow mr-4"><%= @outreach_events.sum(:duration_in_minutes) / 60.0 %></div>
+    <div class="pill is-yellow mr-4"><%= @outreach_events.sum(:duration_in_minutes) / 60 %> hours <%= @outreach_events.sum(:duration_in_minutes) % 60 %> minutes</div>
 
 <% end %>
 
