@@ -50,6 +50,7 @@ private
 	def outreach_event_params
 	  params.require(:outreach_event).permit(
 			:date_range,
+      :title,
 			:description,
 			:duration_in_minutes,
 			:people_reached,
