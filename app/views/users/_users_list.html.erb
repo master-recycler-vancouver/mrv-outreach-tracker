@@ -33,7 +33,7 @@
 <div class="columns is-multiline">
   <% users.each_with_index do |user, index| %>
     <div class="tile is-parent column is-one-quarter">
-      <%= render partial: "user_card", locals: {user: user} %>
+      <%= render partial: "users/user_card", locals: {user: user} %>
     </div>
   <% end %>
 </div>

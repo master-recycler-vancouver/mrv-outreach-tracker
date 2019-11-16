@@ -1,5 +1,5 @@
 class Admin::CohortsController < ApplicationController
-  before_action :get_cohort, only: [:edit, :update]
+  before_action :get_cohort, only: [:edit, :update, :destroy]
 
   def edit
     authorize @cohort
@@ -29,6 +29,14 @@ class Admin::CohortsController < ApplicationController
   end
 
   def destroy
+    authorize @cohort
+    if @cohort.destroy
+      flash[:success] = "Successfully deleted cohort #{@cohort.name}"
+    else
+      flash[:error] = "Failed to delete cohort. #{error_messages(@cohort)}."
+    end
+
+    redirect_to cohorts_path
   end
 
   private

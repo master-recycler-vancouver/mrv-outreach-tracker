@@ -5,5 +5,6 @@ class CohortsController < ApplicationController
 
   def show
     @cohort = authorize Cohort.find(params[:id])
+    @users =  @cohort.users
   end
 end
