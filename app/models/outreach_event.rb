@@ -37,7 +37,7 @@ class OutreachEvent < ApplicationRecord
   private
 
     def end_time_after_start_time
-      if start_time >= end_time
+      if start_time > end_time
         errors.add(:end_time, "must be after start time")
       end
     end
