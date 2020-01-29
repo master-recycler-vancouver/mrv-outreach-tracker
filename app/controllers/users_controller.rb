@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :get_user, only: [:show, :edit, :update]
+  before_action :set_search
 
   def index
     @q = User.ransack(params[:q])
@@ -21,6 +22,10 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def set_search
+    @q=User.search(params[:q])
   end
 
   private
