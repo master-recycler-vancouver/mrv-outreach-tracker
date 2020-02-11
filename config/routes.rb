@@ -16,8 +16,4 @@ Rails.application.routes.draw do
     resources :outreach_events, only: :index
     resources :outreach_event_types, except: [:show]
   end
-
-  namespace :facilitator do
-    resources :outreach_events, only: :index
-  end
 end
