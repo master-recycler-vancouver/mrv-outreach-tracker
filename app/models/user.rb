@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :collaborated_outreach_events, through: :collaborations, source: :outreach_event
   has_many :outreach_event_type_interests
   has_many :outreach_event_types, through: :outreach_event_type_interests
+  has_one_attached :picture
   belongs_to :cohort, optional: true
 
   validate :student_belongs_to_cohort
