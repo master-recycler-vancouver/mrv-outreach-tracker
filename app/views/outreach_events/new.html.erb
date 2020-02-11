@@ -2,8 +2,4 @@
 
 <%= render 'form' %>
 
-<% if current_user.facilitator? %>
-	<%= link_to 'Back', facilitator_outreach_events_path %>
-<% elsif current_user.student? %>
-	<%= link_to 'Back', outreach_events_path %>
-<% end %>
+<%= link_to 'Back', outreach_events_path %>

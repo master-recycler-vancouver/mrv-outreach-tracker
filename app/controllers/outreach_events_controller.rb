@@ -1,6 +1,6 @@
 class OutreachEventsController < ApplicationController
   def index
-  	@outreach_events = policy_scope current_user.outreach_events
+  	@outreach_events = policy_scope OutreachEvent
   end
 
   def show
