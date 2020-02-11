@@ -25,12 +25,10 @@
             <div class="navbar-item has-dropdown is-hoverable">
               <a href="#" class="navbar-link">Outreach Events</a>
               <div class="navbar-dropdown">
-                <%= link_to "Outreach Events", admin_outreach_events_path, class: "navbar-item" %>
+                <%= link_to "Outreach Events", outreach_events_path, class: "navbar-item" %>
                 <%= link_to "Outreach Event Types", admin_outreach_event_types_path, class: "navbar-item" %>
               </div>
             </div>
-          <% elsif current_user.facilitator? %>
-            <%= link_to "Outreach Events", facilitator_outreach_events_path, class: "navbar-item" %>
           <% else %>
             <%= link_to "Outreach Events", outreach_events_path, class: "navbar-item" %>
           <% end %>

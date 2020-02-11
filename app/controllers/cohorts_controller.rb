@@ -4,6 +4,7 @@ class CohortsController < ApplicationController
   end
 
   def show
+  	@q = User.ransack(params[:q])
     @cohort = authorize Cohort.find(params[:id])
     @users =  @cohort.users
   end
