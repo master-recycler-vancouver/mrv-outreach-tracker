@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { 
     invitations: "admin/users/invitations"
   }
+  
+  root :to => 'outreach_events#index', :constraints => lambda { |request| request.env['warden'].user }
   root "home#index"
 
   resources :cohorts, only: [:index, :show]
