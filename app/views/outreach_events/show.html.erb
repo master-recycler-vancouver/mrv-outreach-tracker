@@ -46,8 +46,8 @@
 
 <% if OutreachEventPolicy.new(current_user, @outreach_event).update? %>
   <%= link_to 'Edit', edit_outreach_event_path(@outreach_event) %>
-  <% if OutreachEventPolicy.new(current_user, @outreach_event).destroy? %>
-    <%= link_to 'Delete', outreach_event_path(@outreach_event), method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
+<% end %>
+<% if OutreachEventPolicy.new(current_user, @outreach_event).destroy? %>
+  <%= link_to 'Delete', outreach_event_path(@outreach_event), method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 <%= link_to 'Back', outreach_events_path %>
