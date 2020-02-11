@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  enum role: [ :admin, :student ]
+  enum role: [ :admin, :student, :facilitator ]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable,

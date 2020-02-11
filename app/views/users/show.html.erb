@@ -1,6 +1,11 @@
 <% content_for :page_header do %>
   <%= @user.full_name %>
-  <h6 class="title is-6">Cohort: <%= @user.cohort.name %></h6>
+  <% if @user.cohort.present? %>
+      <h6 class="title is-6">Cohort: <%= @user.cohort.name %></h6>
+  <% end %>
+  <% if @user.role != 'student' %>
+      <h6 class="title is-6">Role: <%= @user.role %></h6>
+  <% end %>
 <% end %>
 
 <% if current_user == @user %>

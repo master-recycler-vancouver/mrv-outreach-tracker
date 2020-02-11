@@ -1,6 +1,6 @@
 class OutreachEventsController < ApplicationController
   def index
-  	@outreach_events = policy_scope current_user.outreach_events
+  	@outreach_events = policy_scope OutreachEvent
   end
 
   def show
@@ -50,6 +50,7 @@ private
 	def outreach_event_params
 	  params.require(:outreach_event).permit(
 			:date_range,
+      :title,
 			:description,
 			:duration_in_minutes,
 			:people_reached,
