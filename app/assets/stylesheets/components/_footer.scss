@@ -1,0 +1,18 @@
+.footer {
+	padding: 3rem 1.5rem 3rem;
+
+  &.is-white {
+  	background-color: white;
+    border-top: 1px solid $light-grey;
+  }
+
+  &.is-dark {
+    background-color: #363636;
+    color: whitesmoke;
+    a {
+      &:hover {
+        color: whitesmoke;
+      }
+    }
+  }
+}
