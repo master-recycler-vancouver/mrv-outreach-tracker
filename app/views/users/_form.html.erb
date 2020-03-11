@@ -1,6 +1,11 @@
 <%= form_for current_user do |form| %>
 
   <div class="field">
+    <%= form.label :picture, class: "label" %>
+    <%= form.file_field :picture, class: "input" %>
+  </div>
+
+  <div class="field">
     <%= form.label :first_name, class: "label" %>
     <div class="control">
       <%= form.text_field :first_name, class: "input" %>
