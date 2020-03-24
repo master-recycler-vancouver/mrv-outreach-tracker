@@ -1,3 +1,44 @@
+<%= search_form_for @q, class: "columns align-items-flex-end" do |f| %>
+
+  <% if !current_user.student? %>
+    <div class="field column is-full-mobile is-2 is-marginless">
+      <%= f.label :user_cohort_name_cont, "Cohort", class: "label" %>
+      <div class="control">
+        <%= f.search_field :user_cohort_name_cont, class: "input" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="field column is-full-mobile is-marginless">
+    <%= f.label :title_or_description_or_notes_cont, "Outreach Event Keywords", class: "label" %>
+    <div class="control">
+      <%= f.search_field :title_or_description_or_notes_cont, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field column is-full-mobile is-narrow is-marginless">
+    <%= f.label :outreach_event_types_name_cont, "Outreach Event Type", class: "label" %>
+    <div class="control">
+      <div class="select">
+        <%= f.collection_select :outreach_event_types_name_cont, @outreach_event_types_list, :name, :name, include_blank: true %>
+      </div>
+    </div>
+  </div>
+
+  <div class="field column is-full-mobile is-marginless">
+    <%= f.label :user_first_name_or_user_last_name_or_user_email_or_collaborators_first_name_or_collaborators_last_name_or_collaborators_email_cont, @current_user.student? ? "Collaborators" : "Master Recyclers", class: "label" %>
+    <div class="control">
+      <%= f.search_field :user_first_name_or_user_last_name_or_user_email_or_collaborators_first_name_or_collaborators_last_name_or_collaborators_email_cont, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field column is-full-mobile is-narrow">
+    <div class="control">
+      <%= f.submit class: "button is-primary" %>
+    </div>
+  </div>
+<% end %>
+
 <div class="table-container">
   <table class="table is-fullwidth is-striped is-hoverable">
     <thead class="thead">

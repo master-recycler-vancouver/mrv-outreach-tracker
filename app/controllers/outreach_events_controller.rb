@@ -1,6 +1,8 @@
 class OutreachEventsController < ApplicationController
   def index
-  	@outreach_events = policy_scope OutreachEvent
+    @q = OutreachEvent.ransack(params[:q])
+  	@outreach_events = policy_scope @q.result(distinct: true).includes(:outreach_event_types, :collaborators)
+    @outreach_event_types_list = OutreachEventType.all
   end
 
   def show
