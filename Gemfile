@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 5.2.4.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1.4'
 # Use Puma as the app server
@@ -39,32 +41,32 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'awesome_print'
 gem 'bulma-rails', '~> 0.7.5'
-gem 'font-awesome-sass', '~> 5.9.0'
 gem 'devise', '~> 4.7.1'
 gem 'devise_invitable', '~> 2.0.1'
 gem 'dotenv-rails', '2.7.2', require: 'dotenv/rails-now'
-gem 'jquery-rails', '~> 4.3.5'
+gem 'font-awesome-sass', '~> 5.9.0'
 gem 'google-cloud-storage', '~> 1.25.1', require: false
-gem "nokogiri", '~> 1.10.8'
+gem 'jquery-rails', '~> 4.3.5'
+gem 'nokogiri', '~> 1.10.8'
 gem 'pundit', '~> 2.0.1'
 gem 'ransack', '~> 2.3.0'
-gem "select2-rails", '~> 4.0.3'
+gem 'select2-rails', '~> 4.0.3'
 gem 'yard', '~> 0.9.20'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'guard-rails', require: false
+  gem 'guard-rspec', require: false
   gem 'pry'
   gem 'pry-doc'
   gem 'rspec-rails'
-  gem 'guard-rails', require: false
-  gem 'guard-rspec', require: false
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -79,4 +81,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
