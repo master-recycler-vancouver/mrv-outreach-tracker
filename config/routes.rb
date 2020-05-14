@@ -2,8 +2,13 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { 
     invitations: "admin/users/invitations"
   }
-  
-  root :to => 'outreach_events#index', :constraints => lambda { |request| request.env['warden'].user }
+
+  # If a user is logged in, send them to the outreach events index
+  authenticated :user do
+    root 'outreach_events#index', as: :authenticated_root
+  end
+
+  # Else, use the home index
   root "home#index"
 
   resources :cohorts, only: [:index, :show]
