@@ -4,6 +4,11 @@ class UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
     @users = policy_scope @q.result(distinct: true).includes(:outreach_event_types, :cohort)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @users.to_csv, filename: "users-#{DateTime.now.strftime('%Y_%m_%d-%H_%M_%S')}.csv" }
+    end
   end
 
   def show
