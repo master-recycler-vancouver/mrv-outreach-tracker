@@ -38,7 +38,7 @@ class User < ApplicationRecord
     write_attribute(:twitter_handle, clean_social_link(val))
   end
 
-  def self.to_csv
+  def self.to_csv(users)
     attributes = %w{
       first_name 
       last_name 
@@ -54,7 +54,7 @@ class User < ApplicationRecord
     CSV.generate(headers: true) do |csv|
       csv << attributes
 
-      all.each do |user|
+      users.each do |user|
         csv << [
           user.first_name, 
           user.last_name, 

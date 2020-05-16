@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @users.to_csv, filename: "users-#{DateTime.now.strftime('%Y_%m_%d-%H_%M_%S')}.csv" }
+      format.csv { send_data User.to_csv(@users), filename: "mrv-users-#{DateTime.now.strftime('%Y_%m_%d-%H_%M_%S')}.csv" }
     end
   end
 
