@@ -18,7 +18,7 @@
     <div class="container <%= current_user.present? and !current_user.student? ? 'is-medium' : 'is-small' %> is-padded">
       <div class="">
         <% flash.each do |type, message| %>
-          <div class="message <%= flash_type_class(type) %>">
+          <div class="message <%= flash_type_class(type) %> mb-3">
             <div class="message-body">
               <%= message %>
             </div>

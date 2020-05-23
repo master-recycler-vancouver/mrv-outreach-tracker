@@ -14,4 +14,16 @@ class UserPolicy < ApplicationPolicy
     # this is like show but for the user's own page
     update?
   end
+
+  def batch_invite?
+    user.admin?
+  end
+
+  def review_invites?
+    batch_invite?
+  end
+
+  def import?
+    batch_invite?
+  end
 end

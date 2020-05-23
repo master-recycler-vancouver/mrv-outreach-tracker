@@ -1,0 +1,98 @@
+<% content_for :page_header do %>
+  Batch Invite Students
+<% end %>
+
+<div class="container mb-3">
+  <p class="mb-1">Hello! As an admin you can batch-invite multiple students from a CSV. Review the table below for required fields and fields you may want to include.<p>
+</div>
+
+<%= form_tag import_users_path, multipart: true, class: "mb-5" do %>
+  <div class="file has-name is-fullwidth js-bulma-file-input-container mb-3">
+    <label class="file-label">
+      <%= file_field_tag :file, required: true, class: "file-input js-bulma-file-input" %>
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="fas fa-upload"></i>
+        </span>
+        <span class="file-label">
+          Choose a file…
+        </span>
+      </span>
+      <span class="file-name js-bulma-file-name"></span>
+    </label>
+  </div>
+
+  <%= submit_tag "Upload CSV", class: "button is-primary" %>
+<% end %>
+
+
+<div class="container mb-3">
+  <h3 class="title is-4">CSV Fields</h3>
+
+  <table class="table is-bordered">
+    <thead>
+      <tr>
+        <th>Field (CSV header name)</th>
+        <th>Type</th>
+        <th>Required?</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>email</td>
+        <td>string</td>
+        <td>yes</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>cohort_id</td>
+        <td>integer</td>
+        <td>yes</td>
+        <td>The cohort must exist first!</td>
+      </tr>
+      <tr>
+        <td>first_name</td>
+        <td>string</td>
+        <td>no</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>last_name</td>
+        <td>string</td>
+        <td>no</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>facebook_handle</td>
+        <td>string</td>
+        <td>no</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>instagram_handle</td>
+        <td>string</td>
+        <td>no</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>linkedin_handle</td>
+        <td>string</td>
+        <td>no</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>twitter_handle</td>
+        <td>string</td>
+        <td>no</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>role</td>
+        <td>string; one of: "student", "admin", or "facilitator"</td>
+        <td>no</td>
+        <td>By default, we will import users as students. If this field is provided, you can create facilitators or admins!</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
