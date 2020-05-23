@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :get_user, only: [:show, :edit, :update]
+  before_action :get_user, only: :show
 
   def index
     @q = User.ransack(params[:q])
@@ -9,15 +9,23 @@ class UsersController < ApplicationController
   end
 
   def show
-    authorize @user
+    authorize current_user
+  end
+
+  def profile
+    @user = current_user
+    authorize current_user
+    render :show
   end
 
   def edit
-    authorize @user
+    @user = current_user
+    authorize current_user
   end
 
   def update
-    authorize @user
+    @user = current_user
+    authorize current_user
     if @user.update(user_params)
       redirect_to profile_path
     else
@@ -28,7 +36,7 @@ class UsersController < ApplicationController
   private
 
   def get_user
-    @user = params[:id].present? ? User.find(params[:id]) : current_user
+    @user = User.find(params[:id])
   end
 
   def user_params

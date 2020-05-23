@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :outreach_events
 
   resources :users
-  get "/profile", to: "users#show" 
+  get '/profile', to: 'users#profile'
   get '/profile/edit', to: 'users#edit'
 
   namespace :admin do

@@ -10,8 +10,8 @@ class UserPolicy < ApplicationPolicy
     record == user
   end
 
-  def show?
-    true
+  def profile?
+    # this is like show but for the user's own page
+    update?
   end
-
 end
