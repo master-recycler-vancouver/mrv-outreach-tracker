@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
-  enum role: [ :admin, :student, :facilitator ]
+  enum role: %i[admin student facilitator]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable,
@@ -40,15 +42,14 @@ class User < ApplicationRecord
 
   private
 
-    def clean_social_link(val)
-      val
-        .downcase
-        .gsub("@", "")        # remove @ symbol
-        .gsub(/\s+/, "")      # remove all spaces
-    end
+  def clean_social_link(val)
+    val
+      .downcase
+      .gsub('@', '')        # remove @ symbol
+      .gsub(/\s+/, '')      # remove all spaces
+  end
 
-    def student_belongs_to_cohort
-      errors.add(:cohort_id, "student must belong to a chort") if self.student? && cohort_id.blank?
-    end
-
+  def student_belongs_to_cohort
+    errors.add(:cohort_id, 'student must belong to a chort') if student? && cohort_id.blank?
+  end
 end
