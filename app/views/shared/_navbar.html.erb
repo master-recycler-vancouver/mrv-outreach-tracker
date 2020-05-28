@@ -41,6 +41,7 @@
 
             <% if current_user.admin? %>
               <%= link_to "Invite New Student", new_user_invitation_path, class: "navbar-item" %>
+              <%= link_to "Batch Invite Students", users_batch_invite_path, class: "navbar-item" %>
             <% end %>
           </div>
         </div>
