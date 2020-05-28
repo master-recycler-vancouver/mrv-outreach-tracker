@@ -3,7 +3,10 @@
   People of MRV: <%= @cohort.name %>
 <% end %>
 
+<% if current_user.admin? or current_user.facilitator? %>
+	<% content_for :page_header_action do %>
+		<%=link_to 'Export Cohort to CSV', cohort_path(@cohort, format: 'csv'), class: "button is-primary"%>
+	<% end %>
+<% end %>
+
 <%= render partial: "users/users_list", locals: { users: @users } %>
-
-
-

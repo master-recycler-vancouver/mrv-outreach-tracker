@@ -9,8 +9,8 @@ class UserPolicy < ApplicationPolicy
     record == user
   end
 
-  def show?
-    true
+  def to_csv?
+    user.admin? or user.facilitator?
   end
 
 end
