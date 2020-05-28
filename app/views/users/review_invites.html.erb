@@ -1,0 +1,36 @@
+<% content_for :page_header do %>
+  Invited students
+<% end %>
+
+<table class="table is-bordered">
+
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Cohort</th>
+      <th>Facebook Handle</th>
+      <th>Instagram Handle</th>
+      <th>Linkedin Handle</th>
+      <th>Twitter Handle</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% users.each_with_index do |user, index| %>
+      <tr>
+        <td><%= user[:first_name] %></td>
+        <td><%= user[:last_name] %></td>
+        <td><%= user[:email] %></td>
+        <td><%= user[:role] %></td>
+        <td><%= Cohort.find(user[:cohort_id]).name %></td>
+        <td><%= user[:facebook_handle] %></td>
+        <td><%= user[:instagram_handle] %></td>
+        <td><%= user[:linkedin_handle] %></td>
+        <td><%= user[:twitter_handle] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  devise_for :users, controllers: { 
-    invitations: "admin/users/invitations"
+  devise_for :users, controllers: {
+    invitations: 'admin/users/invitations'
   }
 
   # If a user is logged in, send them to the outreach events index
@@ -9,17 +11,21 @@ Rails.application.routes.draw do
   end
 
   # Else, use the home index
-  root "home#index"
+  root 'home#index'
 
-  resources :cohorts, only: [:index, :show]
+  resources :cohorts, only: %i[index show]
   resources :outreach_events
 
-  resources :users
-  get "/profile", to: "users#show" 
-  get "/profile/edit", to: "users#edit" 
+  get '/profile', to: 'users#profile'
+  get '/profile/edit', to: 'users#edit'
+
+  get '/users/batch-invite', to: 'users#batch_invite'
+  resources :users do
+    collection { post :import }
+  end
 
   namespace :admin do
-    resources :cohorts, except: [:index, :show]
+    resources :cohorts, except: %i[index show]
     resources :outreach_events, only: :index
     resources :outreach_event_types, except: [:show]
   end
