@@ -111,4 +111,17 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  # SMTP configuration
+  config.action_mailer.default_url_options = { host: ENV['HOST_URL'] }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port: ENV['SENDINBLUE_SMTP_PORT'],
+    address: ENV['SENDINBLUE_SMTP_SERVER'],
+    user_name: ENV['SENDINBLUE_SMTP_LOGIN'],
+    password: ENV['SENDINBLUE_SMTP_PASSWORD'],
+    domain: ENV['SENDINBLUE_DOMAIN'],
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
 end
