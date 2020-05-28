@@ -116,11 +116,11 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV['HOST_URL'] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: ENV['SMTP_ADDRESS'],
-    port: 587,
-    domain: ENV['SMTP_DOMAIN'],
-    user_name: ENV['SMTP_USER'],
-    password: ENV['SMTP_PASS'],
+    port: ENV['SENDINBLUE_SMTP_PORT'],
+    address: ENV['SENDINBLUE_SMTP_SERVER'],
+    user_name: ENV['SENDINBLUE_SMTP_LOGIN'],
+    password: ENV['SENDINBLUE_SMTP_PASSWORD'],
+    domain: ENV['SENDINBLUE_DOMAIN'],
     authentication: :plain,
     enable_starttls_auto: true
   }
