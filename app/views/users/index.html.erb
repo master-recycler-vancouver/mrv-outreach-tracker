@@ -2,4 +2,10 @@
   People of MRV
 <% end %>
 
+<% if current_user.admin? or current_user.facilitator? %>
+	<% content_for :page_header_action do %>
+		<%=link_to 'Export Users to CSV', users_path(request.parameters.merge({format: 'csv'})), class: "button is-primary"%>
+	<% end %>
+<% end %>
+
 <%= render partial: "users_list", locals: {users: @users} %>

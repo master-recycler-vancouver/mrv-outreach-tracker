@@ -26,4 +26,8 @@ class UserPolicy < ApplicationPolicy
   def import?
     batch_invite?
   end
+
+  def to_csv?
+    user.admin? or user.facilitator?
+  end
 end

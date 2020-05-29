@@ -6,6 +6,14 @@ class UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
     @users = policy_scope @q.result(distinct: true).includes(:outreach_event_types, :cohort)
+
+    respond_to do |format|
+      format.html
+      format.csv { 
+        authorize @users, :to_csv?
+        send_data User.to_csv(@users), filename: "mrv-users.csv"
+      }
+    end
   end
 
   def show

@@ -92,6 +92,38 @@ class User < ApplicationRecord
     raise e
   end
 
+  def self.to_csv(users)
+    attributes = %w{
+      first_name 
+      last_name 
+      email 
+      role
+      facebook_handle
+      instagram_handle
+      linkedin_handle
+      twitter_handle
+      cohort
+    }
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      users.each do |user|
+        csv << [
+          user.first_name, 
+          user.last_name, 
+          user.email, 
+          user.role, 
+          user.facebook_handle, 
+          user.instagram_handle, 
+          user.linkedin_handle, 
+          user.twitter_handle, 
+          user.cohort.present? ? user.cohort.name : ''
+        ]
+      end
+    end
+  end
+
   private
 
   def student_belongs_to_cohort
