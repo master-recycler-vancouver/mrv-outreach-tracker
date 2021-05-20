@@ -47,7 +47,7 @@ gem 'dotenv-rails', '2.7.2', require: 'dotenv/rails-now'
 gem 'font-awesome-sass', '~> 5.9.0'
 gem 'google-cloud-storage', '~> 1.25.1', require: false
 gem 'jquery-rails', '~> 4.3.5'
-gem 'nokogiri', '~> 1.10.8'
+gem 'nokogiri', '~> 1.11.4'
 gem 'pundit', '~> 2.0.1'
 gem 'ransack', '~> 2.3.0'
 gem 'select2-rails', '~> 4.0.3'
